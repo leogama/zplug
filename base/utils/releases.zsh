@@ -203,6 +203,10 @@ __zplug::utils::releases::index()
                 tar xvf "$artifact"
                 rm -f "$artifact"
             ;;
+        *.deb)
+                ar -p "$artifact" data.tar.gz | tar xz
+                rm -f "$artifact"
+            ;;
         *.*)
             return 1
             ;;
